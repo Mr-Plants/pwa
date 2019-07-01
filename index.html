@@ -3,10 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <title>PWA</title>
-  <meta name="theme-color" content="#fff">
   <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+  <!--ios 兼容-->
+
+  <meta name="apple-mobile-web-app-title" content="2333">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="white">
+  <link rel="apple-touch-icon" href="images/icon.png">
+
 </head>
 <body>
-啦啦啦啦555
+<div>2333</div>
 </body>
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js').then(() => {
+            alert('sw 注册成功')
+        })
+    }else{
+        alert('不支持')
+    }
+</script>
 </html>
