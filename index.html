@@ -15,13 +15,14 @@
 </head>
 <body>
 <div>2333</div>
+<img src="./images/icon.png" alt="">
 </body>
 <script>
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./sw.js').then(() => {
+        navigator.serviceWorker.register('./sw.js', {scope: '/'}).then(() => {
             alert('sw 注册成功')
         })
-    }else{
+    } else {
         alert('不支持')
     }
 </script>
