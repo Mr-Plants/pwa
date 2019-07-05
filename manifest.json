@@ -1,7 +1,7 @@
 {
   "name": "第一个PWA",
   "short_name": "PWA",
-  "start_url": ".",
+  "start_url": "./login.html",
   "display": "standalone",
   "theme_color": "#fff",
   "background_color": "red",
