@@ -1,9 +1,9 @@
 {
   "name": "第一个PWA",
   "short_name": "PWA",
-  "start_url": "./login.html",
-  "display": "standalone",
-  "theme_color": "#fff",
+  "start_url": ".",
+  "display": "fullscreen",
+  "theme_color": "red",
   "background_color": "red",
   "description": "我的第一个PWA应用",
   "icons": [
