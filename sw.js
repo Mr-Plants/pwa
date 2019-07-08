@@ -18,11 +18,25 @@ self.addEventListener('install', ev => {
             }
         )
     )
-    console.log('已安装')
+    console.log('已安装');
+    self.skipWaiting();
 })
 
 self.addEventListener('activate', ev => {
-    console.log('已激活')
+    console.log('已激活');
+    ev.waitUntil(
+        caches.keys().then(
+            keylist => {
+                return Promise.all(keylist.map(
+                    key => {
+                        console.log(key)
+                        // 此处展示所有版本，可以在激活时删除旧版本
+                    }
+                ))
+            }
+        )
+    )
+    self.clients.claim();
 })
 
 self.addEventListener('fetch', (ev) => {
