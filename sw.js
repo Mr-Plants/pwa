@@ -3,7 +3,7 @@ let cacheFiles = [
     // 'index.html'
 ];
 
-// 安装回调
+// 每次打开带有sw的页面，都会拉取最新sw脚本文件，判断新老脚本文件如果存在字节差异，就安装新的sw脚本，触发install事件
 self.addEventListener('install', ev => {
     ev.waitUntil(
         // 创建一个缓存版本，返回promise
@@ -22,6 +22,7 @@ self.addEventListener('install', ev => {
     self.skipWaiting();
 })
 
+// 旧的service-worker页面全部关闭后，就会激活新的service-worker，触发activate事件，在这里可以清空上一个版本的缓存
 self.addEventListener('activate', ev => {
     console.log('已激活');
     ev.waitUntil(
