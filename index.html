@@ -12,7 +12,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="white">
   <link rel="apple-touch-icon" href="images/icon.png">
 
-  <meta name="theme-color" content="#2F3BA2" />
+  <meta name="theme-color" content="#2F3BA2"/>
 
 </head>
 <body>
@@ -21,12 +21,12 @@
 <a href="login.html">login</a>
 </body>
 <script>
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./sw.js', {scope: '/'}).then(() => {
-            alert('sw 注册成功')
-        })
-    } else {
-        alert('不支持')
-    }
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js', {scope: '/'}).then(() => {
+      alert('sw 注册成功')
+    })
+  } else {
+    alert('不支持serviceWorker')
+  }
 </script>
 </html>
