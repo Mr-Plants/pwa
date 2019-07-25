@@ -1,5 +1,13 @@
 /**
  * CacheStorage API
+ * 可以理解为库
+  interface CacheStorage {
+    delete(cacheName: string): Promise<boolean>;
+    has(cacheName: string): Promise<boolean>;
+    keys(): Promise<string[]>;
+    match(request: RequestInfo, options?: CacheQueryOptions): Promise<Response | undefined>;
+    open(cacheName: string): Promise<Cache>;
+  }
  */
 
 /**
@@ -107,12 +115,4 @@ caches.match('index.html', {
  * 注意！所有CacheStorage的api都是基于promise的
  */
 
-/*
-interface CacheStorage {
-    delete(cacheName: string): Promise<boolean>;
-    has(cacheName: string): Promise<boolean>;
-    keys(): Promise<string[]>;
-    match(request: RequestInfo, options?: CacheQueryOptions): Promise<Response | undefined>;
-    open(cacheName: string): Promise<Cache>;
-}
- */
+

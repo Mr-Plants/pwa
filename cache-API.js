@@ -1,15 +1,16 @@
 /*
  * cache实例的API
- */
-
-/**
- * 获取缓存信息
- */
-navigator.storage.estimate().then(
-  res => {
-    console.log(res)
+ * 可以理解为表
+  interface Cache {
+      add(request: RequestInfo): Promise<void>;
+      addAll(requests: RequestInfo[]): Promise<void>;
+      delete(request: RequestInfo, options?: CacheQueryOptions): Promise<boolean>;
+      keys(request?: RequestInfo, options?: CacheQueryOptions): Promise<ReadonlyArray<Request>>;
+      match(request: RequestInfo, options?: CacheQueryOptions): Promise<Response | undefined>;
+      matchAll(request?: RequestInfo, options?: CacheQueryOptions): Promise<ReadonlyArray<Response>>;
+      put(request: RequestInfo, response: Response): Promise<void>;
   }
-)
+ */
 
 /**
  * 先使用open来获取一个cache对象
@@ -144,16 +145,3 @@ fetch('index.html').then(
     )
   }
 )
-
-
-/*
-interface Cache {
-    add(request: RequestInfo): Promise<void>;
-    addAll(requests: RequestInfo[]): Promise<void>;
-    delete(request: RequestInfo, options?: CacheQueryOptions): Promise<boolean>;
-    keys(request?: RequestInfo, options?: CacheQueryOptions): Promise<ReadonlyArray<Request>>;
-    match(request: RequestInfo, options?: CacheQueryOptions): Promise<Response | undefined>;
-    matchAll(request?: RequestInfo, options?: CacheQueryOptions): Promise<ReadonlyArray<Response>>;
-    put(request: RequestInfo, response: Response): Promise<void>;
-}
- */
