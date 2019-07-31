@@ -17,7 +17,7 @@
 <body>
 <div>2333</div>
 <!--<img src="./images/icon.png" alt="">-->
-<a href="login.html">login</a>
+<button onclick="showNotify()">通知</button>
 </body>
 <script>
   if ('serviceWorker' in navigator) {
@@ -26,6 +26,10 @@
     })
   } else {
     alert('不支持serviceWorker')
+  }
+
+  function showNotify() {
+    Notification.requestPermission()
   }
 </script>
 </html>

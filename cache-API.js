@@ -38,7 +38,7 @@ caches.open('version2').then(
 caches.open('version2').then(
   cache => {
     /**
-     * 先fetch一个资源，然后放进cache
+     * 先fetch一个资源集合，然后放进cache
      */
     cache.addAll(['index.html', 'login.html']).then(
       res => {
