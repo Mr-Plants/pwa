@@ -57,7 +57,19 @@ self.addEventListener('sync', ev => {
 })
 
 self.addEventListener('push', ev => {
-
+  console.log(ev)
+  let promise = self.registration.showNotification('提示', {
+    body: ev.data.text(),
+    icon: './images/icon.png',
+    actions: [
+      {
+        action: 'coffee-action',
+        title: '买买买！',
+        icon: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2205467901,3393000135&fm=26&gp=0.jpg'
+      }
+    ]
+  })
+  ev.waitUntil(promise)
 })
 
 

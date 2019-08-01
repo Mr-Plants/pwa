@@ -29,7 +29,47 @@
   }
 
   function showNotify() {
-    Notification.requestPermission()
+    switch (Notification.permission) {
+      case "default":  // 默认浏览器会弹窗询问
+        Notification.requestPermission().then(
+          res => {
+            if (res === 'granted') {
+              sendMsg();
+            }
+          }
+        );
+        break;
+      case "granted":
+        sendMsg();
+        break;
+      case "denied":
+        console.log('走到这里就要想办法提示用户设置浏览器重新发起认证了')
+    }
+    console.log(Notification.permission);
+
+  }
+
+  function sendMsg() {
+    let note = new Notification('提示', {
+      body: '消息来啦',
+      icon: './images/icon.png'
+    });
+    note.onclick = () => {
+      alert('点击了消息');
+    }
+
+    note.onclose = () => {
+      alert('关闭了消息')
+    }
+
+    note.onerror = (err) => {
+      alert('通知失败')
+      console.log(err)
+    }
+
+    note.onshow = () => {
+      alert('消息展示了')
+    }
   }
 </script>
 </html>
