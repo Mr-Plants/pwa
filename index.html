@@ -21,7 +21,8 @@
 </body>
 <script>
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js', {scope: '/'}).then(() => {
+    // navigator.serviceWorker.register('./sw.js', {scope: '/'}).then(() => {
+    navigator.serviceWorker.register('./sw_with_workbox.js', {scope: '/'}).then(() => {
       alert('sw 注册成功')
     })
   } else {
